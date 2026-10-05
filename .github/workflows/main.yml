@@ -1,0 +1,32 @@
+name: Extract logistics project
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get repository
+        uses: actions/checkout@v4
+
+      - name: Extract project ZIP
+        run: |
+          unzip -o logistics_tracking_online.zip
+          if [ -d "logistics_tracking_online" ]; then
+            cp -R logistics_tracking_online/. .
+            rm -rf logistics_tracking_online
+          fi
+          rm -f logistics_tracking_online.zip
+
+      - name: Save extracted project
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Extract logistics tracking project"
+          git push
