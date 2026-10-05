@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Track Shipment</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Logistics Tracking</div>
+  <a href="/admin" class="small-link">Staff login</a>
+</header>
+
+<main class="container narrow">
+  <section class="hero">
+    <p class="eyebrow">SHIPMENT TRACKING</p>
+    <h1>Track your package</h1>
+    <p>Enter the tracking number provided by the logistics company.</p>
+  </section>
+
+  <form id="trackForm" class="card search-card">
+    <label for="tracking">Tracking number</label>
+    <div class="search-row">
+      <input id="tracking" autocomplete="off" placeholder="LOG-2026-XXXXXXXX" required>
+      <button type="submit">Track</button>
+    </div>
+    <p id="error" class="error"></p>
+  </form>
+
+  <section id="result" class="card hidden"></section>
+</main>
+<script src="/track.js"></script>
+</body>
+</html>

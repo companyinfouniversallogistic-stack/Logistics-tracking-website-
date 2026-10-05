@@ -1,0 +1,19 @@
+DEPLOYMENT CHECKLIST
+
+[ ] Choose a domain, e.g. tracking.yourcompany.com
+[ ] Deploy the Node app to a Node-compatible host
+[ ] Attach persistent storage for /app/data if using SQLite
+[ ] Set NODE_ENV=production
+[ ] Set a long random SESSION_SECRET
+[ ] Set a unique admin username
+[ ] Set a strong admin password
+[ ] Enable HTTPS
+[ ] Test admin login
+[ ] Create one real test shipment
+[ ] Verify the tracking number appears on the public page
+[ ] Update the test shipment status
+[ ] Verify the public timeline changes
+[ ] Set up database backups
+[ ] Add your company branding/contact information
+[ ] Review privacy and data-retention requirements
+[ ] Do not publish fake tracking records or statuses

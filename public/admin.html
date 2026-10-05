@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Logistics Admin</div>
+  <a href="/" class="small-link">Customer tracking</a>
+</header>
+
+<main class="container">
+  <section id="loginPanel" class="card login-card">
+    <h1>Admin login</h1>
+    <p>Sign in to manage genuine shipment records.</p>
+    <form id="loginForm">
+      <label>Username<input id="username" required autocomplete="username"></label>
+      <label>Password<input id="password" type="password" required autocomplete="current-password"></label>
+      <button type="submit">Sign in</button>
+      <p id="loginError" class="error"></p>
+    </form>
+  </section>
+
+  <section id="dashboard" class="hidden">
+    <div class="dashboard-head">
+      <div>
+        <p class="eyebrow">ADMIN DASHBOARD</p>
+        <h1>Shipments</h1>
+      </div>
+      <button id="logout" class="secondary">Log out</button>
+    </div>
+
+    <section class="grid">
+      <form id="createForm" class="card">
+        <h2>Create shipment</h2>
+        <p class="muted">A tracking number is generated only when a real shipment record is created.</p>
+        <label>Recipient name<input id="recipientName" required></label>
+        <label>Destination<input id="destination" required></label>
+        <label>Package description<input id="packageDescription" required></label>
+        <label>Initial status
+          <select id="status">
+            <option>Shipment created</option>
+            <option>In transit</option>
+            <option>Out for delivery</option>
+            <option>Delivered</option>
+          </select>
+        </label>
+        <label>Initial note (optional)<textarea id="note" rows="3"></textarea></label>
+        <button type="submit">Create shipment</button>
+        <p id="createMessage" class="success"></p>
+      </form>
+
+      <div class="card">
+        <h2>How it works</h2>
+        <ol class="steps">
+          <li>Create the shipment record.</li>
+          <li>Give the generated tracking number to the customer.</li>
+          <li>Update status as the real shipment progresses.</li>
+          <li>Customer checks the public tracking page.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="card table-card">
+      <div class="table-head">
+        <h2>Shipment records</h2>
+        <button id="refresh" class="secondary">Refresh</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Tracking</th><th>Recipient</th><th>Destination</th><th>Status</th><th>Created</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="shipments"></tbody>
+        </table>
+      </div>
+    </section>
+  </section>
+</main>
+<script src="/admin.js"></script>
+</body>
+</html>
